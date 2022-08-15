@@ -47,8 +47,17 @@ describe('backend-express-template routes', () => {
       name: 'Bell Pepper',
       color: 'Red',
     });
-    
   });
+  it('#PUT /vegetables/:id should update an existing vegetable', async () => {
+    const resp = await request(app).put('/vegetables/1').send({
+      color: 'Yellow',
+    });
+    console.log(resp.body);
+    expect(resp.status).toBe(200);
+    expect(resp.body.color).toBe('Yellow');
+  });
+
+
   afterAll(() => {
     pool.end();
   });
