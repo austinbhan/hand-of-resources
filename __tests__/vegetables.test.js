@@ -52,7 +52,6 @@ describe('backend-express-template routes', () => {
     const resp = await request(app).put('/vegetables/1').send({
       color: 'Yellow',
     });
-    console.log(resp.body);
     expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('Yellow');
   });
@@ -61,7 +60,7 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
 
     const vegetableResp = await request(app).get('/vegetables/1');
-    expect(vegetableResp.status).toBe(404);
+    expect(vegetableResp.body).toBe(null);
   });
 
   it('#POST /vegetables should create a new vegetable', async () => {
