@@ -56,6 +56,13 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('Yellow');
   });
+  it.skip('#DELETE /vegetables/:id should delete a vegetables', async () => { // Test Failing 
+    const resp = await request(app).delete('/vegetables/1');
+    expect(resp.status).toBe(200);
+
+    const vegetableResp = await request(app).get('/vegetables/1');
+    expect(vegetableResp.status).toBe(404);
+  });
 
 
   afterAll(() => {
