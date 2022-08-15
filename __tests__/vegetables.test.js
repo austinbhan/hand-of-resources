@@ -56,7 +56,7 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('Yellow');
   });
-  it.skip('#DELETE /vegetables/:id should delete a vegetables', async () => { // Test Failing 
+  it('#DELETE /vegetables/:id should delete a vegetables', async () => { // Test Failing 
     const resp = await request(app).delete('/vegetables/1');
     expect(resp.status).toBe(200);
 
@@ -64,6 +64,18 @@ describe('backend-express-template routes', () => {
     expect(vegetableResp.status).toBe(404);
   });
 
+  it('#POST /vegetables should create a new vegetable', async () => {
+    const newVegetable = {
+      name: 'Eggplant',
+      color: 'Purple',
+    };
+    const resp = await request(app).post('/vegetables').send(newVegetable);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newVegetable,
+    });
+  });
 
   afterAll(() => {
     pool.end();
