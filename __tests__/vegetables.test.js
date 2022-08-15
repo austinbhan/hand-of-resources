@@ -38,6 +38,17 @@ describe('backend-express-template routes', () => {
       },
     ]);
   });
+
+  it('#GET vegetables/:id should return a single vegetable', async () => {
+    const resp = await request(app).get('/vegetables/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: 'Bell Pepper',
+      color: 'Red',
+    });
+    
+  });
   afterAll(() => {
     pool.end();
   });
