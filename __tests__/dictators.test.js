@@ -34,5 +34,14 @@ describe('', () => {
       }        
     ]);
   });
+  it('#GET dictators/:id should return a single dictator', async () => {
+    const resp = await request(app).get('/dictators/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: 'Park Chung Hee',
+      country: 'South Korea'
+    });
+  });
     
 });
