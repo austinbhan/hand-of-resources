@@ -27,7 +27,7 @@ INSERT INTO
     dictators (name, country)
 VALUES 
 ('Josef Tito', 'Yugoslavia'),
-('Park Chung He', 'South Korea'),
+('Park Chung Hee', 'South Korea'),
 ('Mobutu Seko','Zaire'),
 ('Francisco Franco','Spain'),
 ('Manuel Noreiga','Panama');
