@@ -43,5 +43,21 @@ describe('', () => {
       country: 'South Korea'
     });
   });
+  it('#POST /dictators should create a new dictator', async () => {
+    const newDictator = {
+      name: 'Lee Kuan Yew',
+      country: 'Singapore',
+    };
+    const resp = await request(app).post('/dictators').send(newDictator);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newDictator,
+    });
+  });
+
+  afterAll(() => {
+    pool.end();
+  });
     
 });
