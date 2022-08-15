@@ -55,6 +55,13 @@ describe('', () => {
       ...newDictator,
     });
   });
+  it('#PUT /dictators/:id should update an existing dictator', async () => {
+    const resp = await request(app).put('/dictators/1').send({
+      country: 'Syldavia',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.color).toBe('Syldavia');
+  });
 
   afterAll(() => {
     pool.end();
