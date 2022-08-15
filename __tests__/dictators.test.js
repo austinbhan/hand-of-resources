@@ -57,10 +57,17 @@ describe('', () => {
   });
   it('#PUT /dictators/:id should update an existing dictator', async () => {
     const resp = await request(app).put('/dictators/1').send({
-      country: 'Syldavia',
+      country: 'Federal Republic of Chicken Soup',
     });
     expect(resp.status).toBe(200);
-    expect(resp.body.color).toBe('Syldavia');
+    expect(resp.body.country).toBe('Federal Republic of Chicken Soup');
+  });
+  it('#DELETE /dictators/:id should delete a dictator', async () => {
+    const resp = await request(app).delete('/dictators/1');
+    expect(resp.status).toBe(200);
+
+    const dictatorResp = await request(app).get('/dictators/1');
+    expect(dictatorResp.body).toBe(null);
   });
 
   afterAll(() => {
