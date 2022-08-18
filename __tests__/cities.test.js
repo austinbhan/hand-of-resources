@@ -9,7 +9,6 @@ describe('backend-express-template routes', () => {
   });
   it('#GET /cities should return a list of cities', async () => {
     const resp = await request(app).get('/cities');
-    console.log(resp.body);
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual([
       { id: '1', name: 'London', country: 'United Kingdom' },
@@ -18,7 +17,15 @@ describe('backend-express-template routes', () => {
       { id: '4', name: 'Cape Town', country: 'South Africa' },
       { id: '5', name: 'Sarajevo', country: 'Bosnia and Herzegovina' },
     ]);
-
+  });
+  it('#GET cities/:id should return a single id', async () => {
+    const resp = await request(app).get('/cities/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: 'Berlin',
+      country: 'Germany'
+    });
   });
   afterAll(() => {
     pool.end();
