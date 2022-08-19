@@ -27,6 +27,20 @@ describe('backend-express-template routes', () => {
       country: 'Germany'
     });
   });
+
+  it('#POST /cities should create a new city', async () => {
+    const newCity = {
+      name: 'Edinburgh',
+      country: 'Scotland',
+    };
+    const resp = await request(app).post('/cities').send(newCity);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newCity,
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
