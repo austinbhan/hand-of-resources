@@ -18,4 +18,14 @@ describe('', () => {
       { id: '5', title: 'Super Meat Boy', developer: 'Team Meat', genre: 'Platformer' },
     ]);
   });
+  it('#GET /games should return a single id', async () => {
+    const resp = await request(app).get('/games/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      title: 'Frostpunk',
+      developer: '11-bit',
+      genre: 'City building'
+    });
+  });
 });
