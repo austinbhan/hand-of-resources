@@ -40,6 +40,13 @@ describe('backend-express-template routes', () => {
       ...newCity,
     });
   });
+  it('#PUT /cities/:id should update an existing city', async () => {
+    const resp = await request(app).put('/cities/1').send({
+      name: 'Munich',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.name).toBe('Munich');
+  });
 
   afterAll(() => {
     pool.end();
