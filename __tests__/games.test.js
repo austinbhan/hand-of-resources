@@ -28,4 +28,17 @@ describe('', () => {
       genre: 'City building'
     });
   });
+  it('#POST /games should create a new game', async () => {
+    const newGame = {
+      title: 'Mass Effect',
+      developer: 'Bioware',
+      genre: 'RPG'
+    };
+    const resp = await request(app).post('/games').send(newGame);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newGame,
+    });
+  });
 });
