@@ -48,4 +48,15 @@ describe('', () => {
     expect(resp.status).toBe(200);
     expect(resp.body.title).toBe('Civilization 6');
   });
+  it('#DELETE /games/:id should delete a game', async () => {
+    const resp = await request(app).delete('/games/1');
+    expect(resp.status).toBe(200);
+
+    const gameResp = await request(app).get('/games/1');
+    expect(gameResp.body).toBe(null);
+  });
+
+  afterAll(() => {
+    pool.end();
+  });
 });
