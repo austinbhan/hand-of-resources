@@ -1,9 +1,11 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
-DROP TABLE IF EXISTS vegetables;
-DROP TABLE IF EXISTS dictators;
-DROP TABLE IF EXISTS cities;
-DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS vegetables CASCADE;
+DROP TABLE IF EXISTS dictators CASCADE;
+DROP TABLE IF EXISTS cities CASCADE;
+DROP TABLE IF EXISTS games CASCADE;
+-- DROP TABLE IF EXISTS arnold CASCADE;
+
 
 CREATE TABLE vegetables (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -26,6 +28,13 @@ CREATE TABLE games (
     developer VARCHAR NOT NULL,
     genre VARCHAR NOT NULL
 );
+-- CREATE TABLE arnold (
+--     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     movie VARCHAR NOT NULL,
+--     catchphrase VARCHAR NOT NULL,
+-- );
+
+
 
 INSERT INTO 
     vegetables (name, color)
@@ -62,3 +71,14 @@ VALUES
 ('Call of Duty', 'Infinity Ward', 'FPS'),
 ('Microsoft Flight Simulator', 'Asobo', 'Simulation'),
 ('Super Meat Boy', 'Team Meat', 'Platformer');
+
+
+-- INSERT INTO 
+--     arnold (movie, catchphrase)
+-- VALUES
+-- ('Kindergarten Cop', 'Its not a toomuh'),
+-- ('Commando', 'Stick Around'),
+-- ('The Terminator', 'Ill be back'),
+-- ('Terminator 2', 'Come with me if you want to live'),
+-- ('Batman and Robin', 'Lets kick some ice');
+
