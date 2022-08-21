@@ -41,4 +41,11 @@ describe('', () => {
       ...newGame,
     });
   });
+  it('#PUT /games/:id should update an existing game', async () => {
+    const resp = await request(app).put('/games/1').send({
+      title: 'Civilization 6',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.title).toBe('Civilization 6');
+  });
 });
