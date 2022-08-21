@@ -7,7 +7,7 @@ describe('', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('#GET /arnold should return a list of movie catchphrases', async () => {
+  it.skip('#GET /arnold should return a list of movie catchphrases', async () => {
     const resp = await request(app).get('/arnold');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual(
