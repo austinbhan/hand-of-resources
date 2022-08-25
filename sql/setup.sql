@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS vegetables CASCADE;
 DROP TABLE IF EXISTS dictators CASCADE;
 DROP TABLE IF EXISTS cities CASCADE;
 DROP TABLE IF EXISTS games CASCADE;
--- DROP TABLE IF EXISTS arnold CASCADE;
+DROP TABLE IF EXISTS arnold CASCADE;
 
 
 CREATE TABLE vegetables (
@@ -28,11 +28,11 @@ CREATE TABLE games (
     developer VARCHAR NOT NULL,
     genre VARCHAR NOT NULL
 );
--- CREATE TABLE arnold (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     movie VARCHAR NOT NULL,
---     catchphrase VARCHAR NOT NULL,
--- );
+CREATE TABLE arnold (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    movie VARCHAR NOT NULL,
+    catchphrase VARCHAR NOT NULL
+);
 
 
 
@@ -73,12 +73,12 @@ VALUES
 ('Super Meat Boy', 'Team Meat', 'Platformer');
 
 
--- INSERT INTO 
---     arnold (movie, catchphrase)
--- VALUES
--- ('Kindergarten Cop', 'Its not a toomuh'),
--- ('Commando', 'Stick Around'),
--- ('The Terminator', 'Ill be back'),
--- ('Terminator 2', 'Come with me if you want to live'),
--- ('Batman and Robin', 'Lets kick some ice');
+INSERT INTO 
+    arnold (movie, catchphrase)
+VALUES
+('Kindergarten Cop', 'Its not a toomuh'),
+('Commando', 'Stick Around'),
+('The Terminator', 'Ill be back'),
+('Terminator 2', 'Come with me if you want to live'),
+('Batman and Robin', 'Lets kick some ice');
 
