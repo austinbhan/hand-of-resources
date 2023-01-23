@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS dictators CASCADE;
 DROP TABLE IF EXISTS cities CASCADE;
 DROP TABLE IF EXISTS games CASCADE;
 DROP TABLE IF EXISTS arnold CASCADE;
+DROP TABLE IF EXISTS countries CASCADE;
 
 
 CREATE TABLE vegetables (
@@ -32,6 +33,12 @@ CREATE TABLE arnold (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     movie VARCHAR NOT NULL,
     catchphrase VARCHAR NOT NULL
+);
+CREATE TABLE countries (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    country VARCHAR NOT NULL,
+    capitol VARCHAR NOT NULL,
+    langue VARCHAR NOT NULL
 );
 
 
@@ -81,4 +88,13 @@ VALUES
 ('The Terminator', 'Ill be back'),
 ('Terminator 2', 'Come with me if you want to live'),
 ('Batman and Robin', 'Lets kick some ice');
+
+INSERT INTO 
+    countries (country, capitol, langue)
+VALUES 
+('United States', 'Washington DC', 'English'),
+('United Kingdom', 'London', 'English'),
+('India', 'New Dehli', 'Hindi'),
+('Romania', 'Bucharest', 'Romanian'),
+('China', 'Beijing', 'Chinese');
 
